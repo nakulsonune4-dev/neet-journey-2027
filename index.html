@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>NEET 2027 Journey - Nakul</title>
+<style>
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    background: #0f172a;
+    color: white;
+    text-align: center;
+}
+
+nav {
+    background: #1e293b;
+    padding: 15px;
+}
+
+nav a {
+    color: white;
+    margin: 0 15px;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+section {
+    padding: 40px 20px;
+}
+
+.progress-container {
+    width: 80%;
+    background: #334155;
+    margin: 20px auto;
+    border-radius: 20px;
+    overflow: hidden;
+}
+
+.progress-bar {
+    height: 30px;
+    width: 0%;
+    background: #22c55e;
+    line-height: 30px;
+    font-weight: bold;
+}
+
+button {
+    padding: 10px 20px;
+    border: none;
+    background: #22c55e;
+    color: white;
+    font-size: 16px;
+    border-radius: 8px;
+    cursor: pointer;
+}
+
+footer {
+    background: #1e293b;
+    padding: 15px;
+    margin-top: 30px;
+}
+</style>
+</head>
+<body>
+
+<nav>
+<a href="#home">Home</a>
+<a href="#about">About</a>
+<a href="#progress">Progress ಚಾಲ
+<a href="#subscribe">Subscribe</a>
+</nav>
+
+<section id="home">
+<h1>NEET 2027 Journey</h1>
+<p>Daily Discipline. Weekly Growth. Monthly Success.</p>
+</section>
+
+<section id="about">
+<h2>About Me</h2>
+<p>Hello, I am Nakul. I am preparing for NEET 2027 and documenting my journey here.</p>
+</section>
+
+<section id="progress">
+<h2>My Current Progress</h2>
+
+<div class="progress-container">
+<div class="progress-bar" id="progressBar">0%</div>
+</div>
+
+<p>Click below to update your progress (Admin Only)</p>
+<button onclick="updateProgress()">Update Progress</button>
+</section>
+
+<section id="subscribe">
+<h2>Stay Connected</h2>
+<p>Follow my journey and stay motivated.</p>
+</section>
+
+<footer>
+© 2026 Nakul | NEET 2027 Journey
+</footer>
+
+<script>
+let progress = localStorage.getItem("neetProgress") || 0;
+const bar = document.getElementById("progressBar");
+
+function setProgress(value){
+    progress = value;
+    bar.style.width = value + "%";
+    bar.innerText = value + "%";
+    localStorage.setItem("neetProgress", value);
+}
+
+function updateProgress(){
+    let newValue = prompt("Enter your new progress percentage:");
+    if(newValue !== null && newValue >= 0 && newValue <= 100){
+        setProgress(newValue);
+    }
+}
+
+setProgress(progress);
+</script>
+
+</body>
+</html>
